@@ -1,0 +1,21 @@
+## ArticlePager (object)
++ Include Pager
++ data: Article, Article (array[Article], required)
+
+## Article (object)
++ id: 7 (number, required)
++ title: `article title` (string, required)
++ short_description: `article short description` (string, optional)
++ image_url: `http:\/\/toptalq.hu\/public\/upload\/image.jpg` (string, optional)
++ target_url: `http:\/\/externalsite.hu\/target.html` (string, required)
++ source (required)
+    + Include Source
++ published_at: `2018-01-30 12:11:10` (string, required)
++ display_type: `small` (enum[string], required)
+    + Members
+        + small
+        + large
+        + text
+        + video
++ current_user (optional)
+    + Include UserMetadata

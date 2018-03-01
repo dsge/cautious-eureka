@@ -1,0 +1,30 @@
+## Follow topic [/user/{user_id}/follow_topic]
+
++ Parameters
+    + user_id (required, number, `1`) - User ID
+
+### List user's followed topics [GET]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Attributes(TopicPager)
+
+### Follow a topic [POST]
+
++ Request (application/json)
+
+    + Attributes(Topic)
+
++ Response 200 (application/json)
+
+## Unfollow a topic [/user/{user_id}/follow_topic/{topic_id}]
+
++ Parameters
+    + user_id (required, number, `1`) - User ID
+    + topic_id (required, number, `1`) - Topic ID
+
+### Remove a topic from followed topics [DELETE]
+
++ Response 200 (application/json)

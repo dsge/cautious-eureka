@@ -1,0 +1,36 @@
+## Article [/article?{query,celeb,source,order_by,order,limit}]
+
++ Parameters
+    + query (optional, string) - Keresőszó
+    + celeb (optional, number, `1`) - Celeb ID
+    + source (optional, number, `1`) - Source ID
+    + order_by (optional, enum[string]) - Rendezési mód
+        + Default `date`
+        + Members
+            + date
+            + popularity
+    + order (optional, enum[string]) - Rendezés iránya
+        + Default `desc`
+        + Members
+            + desc
+            + asc
+    + limit (optional, number, `6`)
+        + Default `10`
+
+### Article list [GET]
+
++ Response 404 (application/json)
++ Response 200 (application/json)
+
+    + Attributes(ArticlePager)
+
+## Article Details [/article/{id}]
+
++ Parameters
+    + id (required, number, `1`) - Article ID
+
+### Article detail [GET]
+
++ Response 200 (application/json)
+
+    + Attributes(Article)

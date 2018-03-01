@@ -1,0 +1,61 @@
+## Favourite article [/user/{user_id}/favourite_article]
+
++ Parameters
+    + user_id (required, number, `1`) - User ID
+
+### List user's favourites article [GET]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Attributes(ArticlePager)
+
+### Favourite an article [POST]
+
++ Request (application/json)
+
+    + Attributes(Article)
+
++ Response 200 (application/json)
+
+## Remove article from favourites [/user/{user_id}/favourite_article/{article_id}]
+
++ Parameters
+    + user_id (required, number, `1`) - User ID
+    + article_id (required, number, `1`) - Article ID
+
+### Remove an article from favourites [DELETE]
+
++ Response 200 (application/json)
+
+## Favourite topic [/user/{user_id}/favourite_topic]
+
++ Parameters
+    + user_id (required, number, `1`) - User ID
+
+### List user's favourites topics [GET]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Attributes(TopicPager)
+
+### Favourite a topic [POST]
+
++ Request (application/json)
+
+    + Attributes(Topic)
+
++ Response 200 (application/json)
+
+## Remove topic from favourites [/user/{user_id}/favourite_topic/{topic_id}]
+
++ Parameters
+    + user_id (required, number, `1`) - User ID
+    + topic_id (required, number, `1`) - Topic ID
+
+### Remove a topic from favourites [DELETE]
+
++ Response 200 (application/json)

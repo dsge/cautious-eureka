@@ -1,0 +1,17 @@
+## UserPager (object)
++ Include Pager
++ data: User, User (array[User], required)
+
+## User (object)
++ id: 7 (number, required)
++ email: `user@toptalq.hu` (string, optional)
++ request_notification: true (boolean, required)
++ denied_sources: Source, Source (array[Source], optional)
+
+## UserMetadata (object)
++ marked_as_favourite: true (boolean, required)
++ follow: true (boolean, optional)
++ interaction: `like` (enum[string], optional)
+    + Members
+        + like
+        + dislike

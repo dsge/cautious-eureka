@@ -1,0 +1,27 @@
+## Topic article [/topic/{topic_id}/article?{popularity,order,timeline}]
+
++ Parameters
+    + topic_id (required, number, `1`) - Topic ID
+    + popularity (optional, enum[string]) - Popularity filter
+        + Members
+            + all - viewcount0
+            + viewcount5
+            + viewcount50
+            + viewcount100
+            + popular - viewcount150
+    + order (optional, enum[string])
+        + Members
+            + asc
+            + desc
+    + timeline (optional, enum[string])
+        + Members
+            + left
+            + right
+
+### List topic's article [GET]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Attributes(ArticlePager)

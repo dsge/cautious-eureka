@@ -1,0 +1,17 @@
+## Article interaction [/article/{article_id}/interaction]
+
++ Parameters
+    + article_id (required, number, `1`) - Article ID
+
+### Interaction with an article [POST]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "type": "like" (enum[string], required) // like, dislike
+                "guest_hash": "device generated hash" (string, optional) // for lightweight identification of non-loggedin users
+            }
+
++ Response 200 (application/json)

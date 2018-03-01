@@ -1,0 +1,16 @@
+## Head article [/head/{head_id}/article?{order_by}]
+
++ Parameters
+    + head_id (required, number, `1`) - Head ID
+    + order_by (optional, enum[string]) - Rendezési mód
+        + Members
+            + date
+            + popularity
+
+### List head's article [GET]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Attributes(ArticlePager)

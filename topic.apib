@@ -1,0 +1,35 @@
+## Topic  [/topic?{query,order_by,order,limit}]
+
++ Parameters
+    + query (optional, string) - Keresőszó
+    + order_by (optional, enum[string]) - Rendezési mód
+        + Default `popularity`
+        + Members
+            + articles
+            + reads
+            + popularity
+    + order (optional, enum[string]) - Rendezés iránya
+        + Default `desc`
+        + Members
+            + desc
+            + asc
+    + limit (optional, number, `6`)
+        + Default `10`
+
+### Topic list [GET]
+
++ Response 404 (application/json)
++ Response 200 (application/json)
+
+    + Attributes(TopicPager)
+
+## Topic Details [/topic/{id}]
+
++ Parameters
+    + id (required, number, `1`) - Topic ID
+
+### Topic detail [GET]
+
++ Response 200 (application/json)
+
+    + Attributes(Topic)

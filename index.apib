@@ -1,0 +1,39 @@
+FORMAT: 1A
+HOST: http://toptalq-be.dev.clapp.eu/api/1.0
+
+# Toptalq
+
+- Minden http request `Content-type: application/json`-t küld és fogad, kivéve, ha mást írunk lentebb
+- Minden API endpoint standard http headerekkel és http hibakódokkal dolgozik
+- Ha a kliensnek van auth tokene (azaz “be van jelentkezve”), akkor minden további http requesthez csatolnia kell egy `Authorization: Bearer <auth token>` headert
+
+<!-- include(auth.apib) -->
+
+<!-- include(user.apib) -->
+<!-- include(user/favourite.apib) -->
+<!-- include(user/follow.apib) -->
+
+<!-- include(head.apib) -->
+<!-- include(head/mixedcontent.apib) -->
+<!-- include(head/topic.apib) -->
+<!-- include(head/article.apib) -->
+
+<!-- include(topic.apib) -->
+<!-- include(topic/article.apib) -->
+
+<!-- include(article.apib) -->
+<!-- include(article/interaction.apib) -->
+
+<!-- include(celeb.apib) -->
+
+<!-- include(source.apib) -->
+
+<!-- include(data_structures/data.apib) -->
+<!-- include(data_structures/pager.apib) -->
+<!-- include(data_structures/user.apib) -->
+<!-- include(data_structures/head.apib) -->
+<!-- include(data_structures/mixedcontent.apib) -->
+<!-- include(data_structures/topic.apib) -->
+<!-- include(data_structures/article.apib) -->
+<!-- include(data_structures/celeb.apib) -->
+<!-- include(data_structures/source.apib) -->
