@@ -303,10 +303,11 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
 
     + Attributes(Head)
 
-## Mixedcontent [/head/{head_id}/mixedcontent?{order_by}]
+## Mixedcontent [/head/{head_id}/mixedcontent?{page,order_by}]
 
 + Parameters
     + head_id (required, number, `1`) - Head ID
+    + page (optional, number) - Oldalszám
     + order_by (optional, enum[string]) - Rendezési mód
         + Members
             + date
@@ -320,10 +321,11 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
 
     + Attributes(MixedcontentPager)
 
-## Head topic [/head/{head_id}/topic]
+## Head topic [/head/{head_id}/topic?{page}]
 
 + Parameters
     + head_id (required, number, `1`) - Head ID
+    + page (optional, number) - Oldalszám
 
 ### List head's topic [GET]
 
@@ -333,10 +335,11 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
 
     + Attributes(TopicPager)
 
-## Head article [/head/{head_id}/article?{order_by}]
+## Head article [/head/{head_id}/article?{page,order_by}]
 
 + Parameters
     + head_id (required, number, `1`) - Head ID
+    + page (optional, number) - Oldalszám
     + order_by (optional, enum[string]) - Rendezési mód
         + Members
             + date
@@ -351,9 +354,10 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
     + Attributes(ArticlePager)
 
 
-## Topic  [/topic?{query,order_by,order,limit}]
+## Topic  [/topic?{page,query,order_by,order,limit}]
 
 + Parameters
+    + page (optional, number) - Oldalszám
     + query (optional, string) - Keresőszó
     + order_by (optional, enum[string]) - Rendezési mód
         + Default `date`
@@ -388,10 +392,11 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
 
     + Attributes(Topic)
 
-## Topic article [/topic/{topic_id}/article?{popularity,order,timeline}]
+## Topic article [/topic/{topic_id}/article?{page,popularity,order,timeline}]
 
 + Parameters
     + topic_id (required, number, `1`) - Topic ID
+    + page (optional, number) - Oldalszám
     + popularity (optional, enum[string]) - Popularity filter
         + Members
             + all - viewcount0
@@ -417,9 +422,10 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
     + Attributes(ArticlePager)
 
 
-## Article [/article?{query,celeb,source,order_by,order,limit}]
+## Article [/article?{page,query,celeb,source,order_by,order,limit}]
 
 + Parameters
+    + page (optional, number) - Oldalszám
     + query (optional, string) - Keresőszó
     + celeb (optional, number, `1`) - Celeb ID
     + source (optional, number, `1`) - Source ID
@@ -473,9 +479,10 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
 + Response 200 (application/json)
 
 
-## Celeb [/celeb?{query,order_by,order,limit}]
+## Celeb [/celeb?{page,query,order_by,order,limit}]
 
 + Parameters
+    + page (optional, number) - Oldalszám
     + query (optional, string) - Keresőszó
     + order_by (optional, enum[string]) - Rendezési mód
         + Default `date`
