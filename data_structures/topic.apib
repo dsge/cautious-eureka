@@ -6,17 +6,27 @@
 + id: 7 (number, required)
 + title: `topic title` (string, required)
 + image_url: `https:\\toptalq.hu\public\upload\image.jpg` (string, required)
-+ description: `topic description` (string, optional)
-+ extended_description: `topic extended description` (string, optional)
 + number_of_articles: 1530 (number, required)
 + number_of_new_articles: 12 (number, optional)
-+ number_of_reads: 55437 (number, required)
++ number_of_reads: 55437 (number, optional)
++ current_user (optional)
+    + Include UserMetadataTopic
+
+## TopicRelatedArticlesPager (object)
++ Include Pager
++ data: TopicRelatedArticles, TopicRelatedArticles (array[TopicRelatedArticles], required)
+
+## TopicRelatedArticles (object)
++ Include Topic
 + related_articles: Article, Article, Article (array[Article], optional)
+
+## TopicDetailed (object)
++ Include Topic
++ description: `topic description` (string, optional)
++ extended_description: `topic extended description` (string, optional)
 + timeline (optional)
     + Include Timeline
 + comment_url: `http:\/\/toptalq.hu\/article\/comment.html` (string, optional)
-+ current_user (optional)
-    + Include UserMetadata
 
 ## Timeline (object)
 + left: `left name` (string, required)
