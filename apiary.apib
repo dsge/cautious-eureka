@@ -232,7 +232,7 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
 
 + Response 200 (application/json)
 
-    + Attributes(TopicPager)
+    + Attributes(TopicRelatedArticlesPager)
 
 ### Favourite a topic [POST]
 
@@ -263,7 +263,7 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
 
 + Response 200 (application/json)
 
-    + Attributes(TopicPager)
+    + Attributes(TopicRelatedArticles)
 
 ### Follow a topic [POST]
 
@@ -303,6 +303,16 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
 
     + Attributes(Head)
 
+## Head highlights [/head/{head_id}/highlight]
+
+### List head's highlights [GET]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Attributes(array[Topic])
+
 ## Mixedcontent [/head/{head_id}/mixedcontent?{page,order_by}]
 
 + Parameters
@@ -314,6 +324,9 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
             + popularity
 
 ### List head's mixedcontent [GET]
+
+A Mixedcontent object egy wrapper object, aminek csak annyi a szerepe, hogy vegyes listát kaphasson vissza a kliens a TopicRelatedArticles és az Article object-ekből.
+Tehát a Mixedcontent object-ben vagy csak "topic" kulcs létezik, és abban a TopicRelatedArticles object, vagy csak az "article" kulcs, és abban az Article object.
 
 + Request (application/json)
 
@@ -333,7 +346,7 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
 
 + Response 200 (application/json)
 
-    + Attributes(TopicPager)
+    + Attributes(TopicRelatedArticles)
 
 ## Head article [/head/{head_id}/article?{page,order_by}]
 
@@ -379,7 +392,7 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
 + Response 404 (application/json)
 + Response 200 (application/json)
 
-    + Attributes(TopicPager)
+    + Attributes(TopicRelatedArticlesPager)
 
 ## Topic Details [/topic/{id}]
 
@@ -390,7 +403,7 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
 
 + Response 200 (application/json)
 
-    + Attributes(Topic)
+    + Attributes(TopicDetailed)
 
 ## Topic article [/topic/{topic_id}/article?{page,popularity,order,timeline}]
 
@@ -549,7 +562,13 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
 
 ## UserMetadata (object)
 + marked_as_favourite: true (boolean, required)
+
+## UserMetadataTopic (object)
++ Include UserMetadata
 + follow: true (boolean, optional)
+
+## UserMetadataArticle (object)
++ Include UserMetadata
 + interaction: `like` (enum[string], optional)
     + Members
         + like
@@ -558,7 +577,6 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
 ## Head (object)
 + id: 2 (number, required)
 + title: `Hirek` (string, required)
-+ highlighted: Topic, Topic (array[Topic], optional)
 + type: `mixed_topic_article` (enum[string], required)
     + Members
         + mixed_topic_article
@@ -569,8 +587,8 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
 + data: Mixedcontent, Mixedcontent (array[Mixedcontent], required)
 
 ## Mixedcontent (object)
-+ topic (Topic, optional)
-    + Include Topic
++ topic (TopicRelatedArticles, optional)
+    + Include TopicRelatedArticles
 + article (Article, optional)
     + Include Article
 
@@ -582,17 +600,27 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
 + id: 7 (number, required)
 + title: `topic title` (string, required)
 + image_url: `https:\\toptalq.hu\public\upload\image.jpg` (string, required)
-+ description: `topic description` (string, optional)
-+ extended_description: `topic extended description` (string, optional)
 + number_of_articles: 1530 (number, required)
 + number_of_new_articles: 12 (number, optional)
-+ number_of_reads: 55437 (number, required)
++ number_of_reads: 55437 (number, optional)
++ current_user (optional)
+    + Include UserMetadataTopic
+
+## TopicRelatedArticlesPager (object)
++ Include Pager
++ data: TopicRelatedArticles, TopicRelatedArticles (array[TopicRelatedArticles], required)
+
+## TopicRelatedArticles (object)
++ Include Topic
 + related_articles: Article, Article, Article (array[Article], optional)
+
+## TopicDetailed (object)
++ Include Topic
++ description: `topic description` (string, optional)
++ extended_description: `topic extended description` (string, optional)
 + timeline (optional)
     + Include Timeline
 + comment_url: `http:\/\/toptalq.hu\/article\/comment.html` (string, optional)
-+ current_user (optional)
-    + Include UserMetadata
 
 ## Timeline (object)
 + left: `left name` (string, required)
@@ -619,7 +647,7 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
         + video
 + comment_url: `http:\/\/toptalq.hu\/article\/comment.html` (string, optional)
 + current_user (optional)
-    + Include UserMetadata
+    + Include UserMetadataArticle
 
 ## CelebPager (object)
 + Include Pager
@@ -644,5 +672,4 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
 ## Source (object)
 + id: 2 (number, required)
 + title: `origo.hu` (string, required)
-+ icon_url: `http:\/\/toptalq.hu\/public\/upload\/icon.jpg` (string, optional)
 
