@@ -195,7 +195,11 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
 + Parameters
     + user_id (required, number, `1`) - User ID
 
-### List user's favourites article [GET]
+### List user's favourites article [GET /user/{user_id}/favourite_article?{page}]
+
++ Parameters
+    + user_id (required, number, `1`) - User ID
+    + page (optional, number) - Oldalszám
 
 + Request (application/json)
 
@@ -226,7 +230,11 @@ Amennyiben a felhasználónak még el kell fogadnia a terms and conditions-t (me
 + Parameters
     + user_id (required, number, `1`) - User ID
 
-### List user's favourites topics [GET]
+### List user's favourites topics [GET /user/{user_id}/favourite_topic?{page}]
+
++ Parameters
+    + user_id (required, number, `1`) - User ID
+    + page (optional, number) - Oldalszám
 
 + Request (application/json)
 
