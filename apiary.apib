@@ -501,7 +501,7 @@ Tehát a Mixedcontent object-ben vagy csak "topic" kulcs létezik, és abban a T
 + Response 200 (application/json)
 
 
-## Celeb [/celeb?{page,query,order_by,order,limit}]
+## Celeb [/celeb?{page,query,order_by,order,gender,limit}]
 
 + Parameters
     + page (optional, number) - Oldalszám
@@ -517,6 +517,10 @@ Tehát a Mixedcontent object-ben vagy csak "topic" kulcs létezik, és abban a T
         + Members
             + desc
             + asc
+    + gender (optional, enum[string]) - Neme
+        + Members
+            + man
+            + woman
     + limit (optional, number, `6`)
         + Default `10`
 
