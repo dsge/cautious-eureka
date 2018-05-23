@@ -378,6 +378,20 @@ Tehát a Mixedcontent object-ben vagy csak "topic" kulcs létezik, és abban a T
     + Attributes(ArticlePager)
 
 
+## Cover [/cover?{head_id}]
+
++ Parameters
+    + head_id (optional, number) - Head id
+
+### Cover content list [GET]
+
+Ha nem küld a kliens head_id paramétert, akkor a címlapon lévő témák lesznek a response-ban (Mixedcontent object-ben), ha küld, akkor az adott head-hez tartozó mixedcontent adat lesz a response-ban.
+
++ Response 200 (application/json)
+
+    + Attributes(array[Mixedcontent])
+
+
 ## Topic  [/topic?{page,query,order_by,order,limit}]
 
 + Parameters
